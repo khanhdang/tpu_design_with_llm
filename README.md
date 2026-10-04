@@ -21,6 +21,6 @@ Change to the directory. Using your preferable LLM, run this prompt
 | LLM | Folder | Note | Execution Time | Log |
 | --- | --- | --- | --- | --- |
 | None | [TPU_LLM_Template](TPU_LLM_Template) | A template to run with LLMs; Date: Oct 04, 2026 | N/A | N/A |
-| GPT 5.5 | [TPU_GPT_5.5](TPU_GPT_5.5) | Reasoning-effort: High; Date: Oct 04, 2026 | | [log](logs/TPU_GPT_5.5.md)|
-| GPT 5.6 Sol | [TPU_GPT_5.6_Sol](TPU_GPT_5.6_Sol) | Reasoning-effort: High; Date: Oct 04, 2026 | | [log](logs/TPU_GPT_5.6_Sol.md)|
+| GPT 5.5 | [TPU_GPT_5.5](TPU_GPT_5.5) | Reasoning-effort: High; Date: Oct 04, 2026 |  9m21s | [log](logs/TPU_GPT_5.5.md)|
+| GPT 5.6 Sol | [TPU_GPT_5.6_Sol](TPU_GPT_5.6_Sol) | Reasoning-effort: High; Date: Oct 04, 2026 | 7m57s | [log](logs/TPU_GPT_5.6_Sol.md)|
 | GPT 6.1 Sol | [TPU_GPT_6.1_Sol](TPU_GPT_6.1_Sol) | Reasoning-effort: High; Date: Oct 04, 2026 | 9m4s| [log](logs/TPU_GPT_6.1_Sol.md) |
