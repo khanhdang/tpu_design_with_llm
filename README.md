@@ -8,4 +8,4 @@ Everything is run with LLM, simulate with Icarus Verilog
 
 | LLM | Folder | Note |
 | --- | --- | --- |
-| GPT 6.1 Sol | [TPU_GPT_6.1_Sol](TPU_GPT_6.1_Sol) | reasoning-effort: High. Date: 2026/10/05 |
+| GPT 6.1 Sol | [TPU_GPT_6.1_Sol](TPU_GPT_6.1_Sol) | Reasoning-effort: High; Date: Oct 04, 2026 |
