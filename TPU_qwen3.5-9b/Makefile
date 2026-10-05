@@ -7,13 +7,14 @@ IVERILOG ?= iverilog
 VVP ?= vvp
 SIM_TIMEOUT ?= 30
 
-.PHONY: help doctor doctor-opencode opencode setup build mac pe array controller tpu test regression clean
+.PHONY: help doctor doctor-opencode opencode serve setup build mac pe array controller tpu test regression clean
 
 help:
 	@echo "TPU workspace for cloud or local LLM assistants"
 	@echo "  make doctor       Check required simulation tools (no LLM dependency)"
 	@echo "  make doctor-opencode  Also check optional OpenCode and project config"
 	@echo "  make opencode     Launch OpenCode; optional LLM_MODEL=provider/model"
+	@echo "  make serve        Start Ollama with 64k context and one loaded model"
 	@echo "  make setup        Pull the model and create its 64k local alias"
 	@echo "  make build        Generate and verify all stages with the configured Ollama model"
 	@echo "  make mac          Verify MAC"
@@ -32,6 +33,9 @@ doctor-opencode:
 
 opencode:
 	bash scripts/run_opencode.sh
+
+serve:
+	bash scripts/serve_ollama.sh
 
 setup:
 	bash scripts/setup_model.sh

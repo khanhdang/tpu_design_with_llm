@@ -20,5 +20,7 @@ Implement a small systolic-array accelerator for matrix multiplication.
 | GPT 5.5 | [TPU_GPT_5.5](TPU_GPT_5.5) | Reasoning-effort: High; Date: Oct 04, 2026 | `check this folder and build` | 9m21s | [log](logs/TPU_GPT_5.5.md)|
 | GPT 5.6 Sol | [TPU_GPT_5.6_Sol](TPU_GPT_5.6_Sol) | Reasoning-effort: High; Date: Oct 04, 2026 | `check this folder and build` |  7m57s | [log](logs/TPU_GPT_5.6_Sol.md)|
 | GPT 6.1 Sol | [TPU_GPT_6.1_Sol](TPU_GPT_6.1_Sol) | Reasoning-effort: High; Date: Oct 04, 2026 | `check this folder and build` |  9m4s| [log](logs/TPU_GPT_6.1_Sol.md) |
-| qwen3-coder:30b | [TPU_qwen3-coder-30b](TPU_Local_Models_CPU_only/qwen3-coder-30b) | Date: Oct 05, 2026 | make build |  | log |
- 
+| qwen3-coder:30b | [TPU_qwen3-coder-30b](TPU_qwen3-coder-30b) | Date: Oct 05, 2026 | make build |  | log |
+ | glm-4.7-flash:latest | [TPU_glm-4.7-flash](TPU_glm-4.7-flash) | Local Ollama; 64k context | `make build` | Not measured | N/A |
+| devstral-small-2:24b | [TPU_devstral-small-2-24b](TPU_devstral-small-2-24b) | Local Ollama; 64k context | `make build` | Not measured | N/A |
+| qwen3.5:9b | [TPU_qwen3.5-9b](TPU_qwen3.5-9b) | Local Ollama; 64k context | `make build` | Not measured | N/A |
