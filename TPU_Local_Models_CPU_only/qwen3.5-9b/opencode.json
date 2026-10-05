@@ -1,0 +1,67 @@
+{
+  "model": "ollama/tpu-qwen3.5-9b:64k",
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama (local)",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      },
+      "models": {
+        "tpu-qwen3.5-9b:64k": {
+          "name": "Qwen3.5 9B (64k)"
+        }
+      }
+    }
+  },
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": false,
+  "share": "disabled",
+  "instructions": [
+    "docs/local-tools.md",
+    "docs/architecture.md"
+  ],
+  "compaction": {
+    "auto": true,
+    "prune": true
+  },
+  "watcher": {
+    "ignore": [
+      "sim/**",
+      "._*",
+      "**/._*"
+    ]
+  },
+  "command": {
+    "mac": {
+      "description": "Implement and verify the signed MAC only",
+      "agent": "build",
+      "template": "{file:prompts/mac.md}"
+    },
+    "pe": {
+      "description": "Implement and verify the PE after MAC passes",
+      "agent": "build",
+      "template": "{file:prompts/pe.md}"
+    },
+    "array": {
+      "description": "Implement and verify the systolic array after PE passes",
+      "agent": "build",
+      "template": "{file:prompts/array.md}"
+    },
+    "controller": {
+      "description": "Implement and verify control after array passes",
+      "agent": "build",
+      "template": "{file:prompts/controller.md}"
+    },
+    "tpu": {
+      "description": "Integrate TPU top and verify the complete design",
+      "agent": "build",
+      "template": "{file:prompts/tpu.md}"
+    },
+    "regression": {
+      "description": "Run and repair the complete five-stage Icarus regression",
+      "agent": "build",
+      "template": "{file:prompts/regression.md}"
+    }
+  }
+}
