@@ -90,7 +90,8 @@ make build
 ```
 
 The loop runs MAC -> PE -> systolic array -> controller -> TPU top -> full
-regression. Each stage gets a fresh OpenCode session with a private server.
+regression. Each stage gets a fresh OpenCode session. When supported, the launcher uses
+`--standalone` for a private server.
 The script independently runs its verification target before moving on.
 Failed verification is fed back to the model for repair, with up to three
 attempts per stage. An OpenCode failure or exhausted attempts stops the build.
@@ -119,8 +120,8 @@ Generated RTL goes in `rtl/`, testbenches in `tb/`, and simulation output in
   before starting the configured foreground server.
 - Model missing: run `make setup` while Ollama is running.
 - Missing executable: install the tool named by `make doctor-opencode`.
-- Unsupported `--standalone` or `--auto`: the loop requires an OpenCode
-  version that supports these flags; check `opencode run --help`.
+- CLI compatibility: the launcher detects `--standalone` and uses it only
+  when supported. Unattended builds require `--auto`; check `opencode run --help`.
 - Invalid tool name: inspect the agent log. `docs/local-tools.md` instructs
   the model to use the available tools; model tool-use reliability still needs
   actual testing.

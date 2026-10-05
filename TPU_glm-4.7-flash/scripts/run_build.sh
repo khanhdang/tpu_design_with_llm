@@ -16,6 +16,18 @@ if [[ "$model" == ollama/* ]]; then
         exit 1
     }
 fi
+# OpenCode CLI flags differ between releases. Use only advertised options.
+run_help="$(opencode run --help 2>&1)"
+run_flags=(--model "$model" --agent build)
+if [[ "$run_help" == *"--standalone"* ]]; then
+    run_flags+=(--standalone)
+fi
+if [[ "$run_help" == *"--auto"* ]]; then
+    run_flags+=(--auto)
+else
+    echo "This OpenCode lacks --auto; install a version supporting unattended runs." >&2
+    exit 1
+fi
 mkdir -p sim
 log_dir="$(mktemp -d "$project_root/sim/build.XXXXXXXX")"
 echo "Model: $model"
@@ -29,7 +41,7 @@ for stage in mac pe array controller tpu regression; do
         echo "=== $stage: attempt $attempt/$attempts ==="
         agent_log="$log_dir/$stage.$attempt.agent.log"
         verify_log="$log_dir/$stage.$attempt.verify.log"
-        if ! bash scripts/run_opencode.sh run --standalone --model "$model" --agent build --auto "$prompt" 2>&1 | tee "$agent_log"; then
+        if ! bash scripts/run_opencode.sh run "${run_flags[@]}" "$prompt" 2>&1 | tee "$agent_log"; then
             echo "OpenCode failed; stopping. See $agent_log" >&2
             exit 1
         fi
