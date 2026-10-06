@@ -32,6 +32,8 @@ mkdir -p sim
 log_dir="$(mktemp -d "$project_root/sim/build.XXXXXXXX")"
 echo "Model: $model"
 echo "Build logs: $log_dir"
+workspace_prompt="Workspace: $project_root
+This existing directory is the project root. Work directly here using its existing rtl/, tb/, and sim/ directories. All project file writes and build commands must stay inside this root. Do not create or switch to another project folder, rename the project, or derive a directory name from the model name."
 for stage in mac pe array controller tpu regression; do
     target="$stage"
     [[ "$stage" != regression ]] || target=test
@@ -41,7 +43,9 @@ for stage in mac pe array controller tpu regression; do
         echo "=== $stage: attempt $attempt/$attempts ==="
         agent_log="$log_dir/$stage.$attempt.agent.log"
         verify_log="$log_dir/$stage.$attempt.verify.log"
-        if ! bash scripts/run_opencode.sh run "${run_flags[@]}" "$prompt" 2>&1 | tee "$agent_log"; then
+        if ! bash scripts/run_opencode.sh run "${run_flags[@]}" "$workspace_prompt
+
+$prompt" 2>&1 | tee "$agent_log"; then
             echo "OpenCode failed; stopping. See $agent_log" >&2
             exit 1
         fi
