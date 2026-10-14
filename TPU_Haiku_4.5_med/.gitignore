@@ -1,0 +1,13 @@
+# Generated simulation output and assistant dependencies
+sim/*
+!sim/.gitkeep
+.opencode/
+__pycache__/
+*.pyc
+/a.out
+.DS_Store
+._*
+# Personal client configuration and credentials
+opencode.local.json
+.env
+.env.*
