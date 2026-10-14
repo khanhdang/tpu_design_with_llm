@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(make doctor)",
+      "Bash(make mac)",
+      "Bash(make pe)",
+      "Bash(make array)",
+      "Bash(make controller)",
+      "Bash(make tpu)",
+      "Bash(make test)",
+      "Bash(make regression)",
+      "Bash(make clean)",
+      "Bash(iverilog:*)",
+      "Bash(vvp:*)",
+      "Bash(mkdir -p sim/restart-backup/:*)",
+      "Edit(./rtl/**)",
+      "Edit(./tb/**)"
+    ],
+    "deny": [
+      "Edit(./AGENTS.md)",
+      "Edit(./docs/**)",
+      "Edit(./prompts/**)",
+      "Edit(./Makefile)",
+      "Edit(./scripts/**)",
+      "Read(../TPU_*/**)"
+    ]
+  }
+}
